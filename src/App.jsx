@@ -16,7 +16,9 @@ import Leaderboard from "./pages/Leaderboard";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import LearningHub from "./pages/LearningHub";
+import TeacherDashboard from "./pages/TeacherDashboard";
 import LanguageSwitcher from "./components/LanguageSwitcher";
+import Careers from "./pages/Careers";
 
 function App() {
   const location = useLocation();
@@ -183,6 +185,8 @@ function App() {
             <Route path="/memory" element={<Memory />} />
             <Route path="/sudoku" element={<Sudoku />} />
             <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/teacher" element={<TeacherDashboard />} />
+            <Route path="/careers" element={<Careers />} />
           </Routes>
         </motion.div>
       </main>

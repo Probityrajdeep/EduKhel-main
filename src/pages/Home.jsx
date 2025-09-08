@@ -192,6 +192,8 @@ export default function Home() {
         </svg>
       </motion.div>
 
+      {/* Removed teacher CTA banner as per request */}
+
       {/* Hero Section */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen text-center px-4 py-16">
         <motion.h1
@@ -223,6 +225,7 @@ export default function Home() {
           >
             {t('Start Learning')} 📘
           </motion.button>
+          {/* Keep Teacher access via Navbar; removed extra hero button */}
           <motion.button
             onClick={() => navigate('/gamehub')}
             onMouseEnter={playSound}
@@ -314,6 +317,50 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold text-white mb-3 text-center">{formatText(feature.title)}</h3>
                 <p className="text-gray-300 text-sm text-center">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </motion.section>
+
+      {/* Advanced Learning Hub Strip for Classes 6-12 */}
+      <motion.section
+        className="relative z-10 py-10 px-4"
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+      >
+        <div className="max-w-6xl mx-auto bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl p-6">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <h3 className="text-2xl md:text-3xl font-bold">Learning Hub • Classes 6–12</h3>
+            <div className="flex flex-wrap items-center gap-2">
+              {['6','7','8','9','10','11','12'].map(g => (
+                <span key={g} className="px-3 py-1 rounded-full bg-purple-600/30 border border-purple-400/30 text-sm">Class {g}</span>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            {[{t:'STEM Missions',e:'🧪',c:'from-blue-500 to-cyan-500',d:'Physics, Chemistry, Biology challenges with live simulations.'},
+              {t:'Math Arenas',e:'🧮',c:'from-emerald-500 to-green-600',d:'Timed quizzes, boss problems, step hints, and XP.'},
+              {t:'Language Quest',e:'📝',c:'from-pink-500 to-purple-600',d:'Vocabulary sprints, grammar combos, creative writing.'}
+            ].map((card, i) => (
+              <motion.div key={i} className="relative overflow-hidden rounded-2xl p-5 bg-gradient-to-br from-gray-800 to-gray-900 border border-white/10"
+                whileHover={{ scale: 1.02 }}
+              >
+                <div className={`absolute -top-10 -right-10 w-40 h-40 rounded-full blur-3xl opacity-30 bg-gradient-to-r ${card.c}`}></div>
+                <div className="relative z-10 flex items-start gap-3">
+                  <div className="text-3xl">{card.e}</div>
+                  <div>
+                    <h4 className="text-xl font-bold mb-1">{card.t}</h4>
+                    <p className="text-sm text-gray-300">{card.d}</p>
+                  </div>
+                </div>
+                <div className="mt-4 flex gap-2">
+                  <button onClick={() => navigate('/learning')} className="px-4 py-2 rounded-lg bg-yellow-400 text-black font-semibold hover:shadow-lg transition">Explore</button>
+                  <button onClick={() => navigate('/gamehub')} className="px-4 py-2 rounded-lg bg-purple-600 text-white font-semibold hover:shadow-lg transition">Practice</button>
+                </div>
               </motion.div>
             ))}
           </div>

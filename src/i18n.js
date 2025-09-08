@@ -88,12 +88,21 @@ const resources = {
   }
 };
 
+const savedLng = typeof window !== 'undefined' ? localStorage.getItem('edukhel_lng') : null;
+
 i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "en",
+    lng: savedLng || 'en',
     interpolation: { escapeValue: false }
   });
+
+// persist on change
+i18n.on('languageChanged', (lng) => {
+  try {
+    localStorage.setItem('edukhel_lng', lng);
+  } catch {}
+});
 
 export default i18n;

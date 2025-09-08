@@ -6,7 +6,7 @@ const LanguageSwitcher = () => {
   const { i18n } = useTranslation();
 
   const changeLanguage = (lng) => {
-    i18n.changeLanguage(lng); // 👈 language update
+    i18n.changeLanguage(lng);
   };
 
   return (
