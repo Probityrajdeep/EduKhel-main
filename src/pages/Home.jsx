@@ -45,10 +45,12 @@ export default function Home() {
     };
     document.head.appendChild(script);
 
-    // --- Botpress Chatbot Integration ---
+    // --- Botpress Chatbot Integration using provided scripts ---
     // Remove any existing botpress scripts to avoid duplicates
     const existingInject = document.getElementById("botpress-inject");
     if (existingInject) existingInject.remove();
+    const existingConfig = document.getElementById("botpress-config");
+    if (existingConfig) existingConfig.remove();
 
     // Inject Botpress inject.js
     const botpressScript = document.createElement("script");
@@ -57,11 +59,13 @@ export default function Home() {
     botpressScript.id = "botpress-inject";
     document.body.appendChild(botpressScript);
 
+    // Inject Botpress config script after inject.js loads
     botpressScript.onload = () => {
-      window.botpressWebChat.init({
-        configUrl: "https://files.bpcontent.cloud/2025/09/05/17/20250905173043-0LG6T3LS.json",
-        // You can add more options here if needed
-      });
+      const botpressConfigScript = document.createElement("script");
+      botpressConfigScript.src = "https://files.bpcontent.cloud/2025/09/05/17/20250905173043-QRDWD4YI.js";
+      botpressConfigScript.defer = true;
+      botpressConfigScript.id = "botpress-config";
+      document.body.appendChild(botpressConfigScript);
     };
   }, []);
 
