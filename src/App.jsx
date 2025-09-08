@@ -19,6 +19,7 @@ import LearningHub from "./pages/LearningHub";
 import TeacherDashboard from "./pages/TeacherDashboard";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import Careers from "./pages/Careers";
+import Contact from "./pages/Contact";
 
 function App() {
   const location = useLocation();
@@ -187,6 +188,7 @@ function App() {
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/teacher" element={<TeacherDashboard />} />
             <Route path="/careers" element={<Careers />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </motion.div>
       </main>

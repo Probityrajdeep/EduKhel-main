@@ -153,31 +153,7 @@ export default function Home() {
     
       <div id="tsparticles" className="absolute inset-0 z-0" style={{ opacity: isParticlesLoaded ? 1 : 0, transition: "opacity 1s" }}></div>
 
-      {/* Search Bar */}
-      <motion.div 
-        className="fixed top-24 left-1/2 transform -translate-x-1/2 z-50 w-full max-w-md px-4"
-        initial={{ opacity: 0, y: -20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.5, duration: 0.6 }}
-      >
-        <form onSubmit={handleSearch} className="relative">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder={formatText(t('search_placeholder'))}
-            className="w-full px-6 py-3 bg-white/10 backdrop-blur-lg border border-white/20 rounded-full text-white placeholder-gray-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:border-transparent transition-all duration-300 pr-12"
-          />
-          <button
-            type="submit"
-            className="absolute right-3 top-1/2 transform -translate-y-1/2 text-yellow-400 hover:text-yellow-300 transition-colors"
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-            </svg>
-          </button>
-        </form>
-      </motion.div>
+      {/* Home page search removed (moved to Navbar) */}
 
       {/* Floating Elements */}
       <motion.div className="absolute top-1/4 right-1/4 z-10 hidden lg:block"
@@ -515,4 +491,4 @@ export default function Home() {
     </div>
   );
 }
-// this is a test comment
+// this is a test comme

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import * as Tone from 'tone';
 import AlgebraQuiz from "../components/quizzes/AlgebraQuiz";
 import ScienceQuiz from "../components/quizzes/ScienceQuiz";
@@ -204,6 +205,8 @@ export default function LearningHub({ onGoHome }) {
   const [isAudioStarted, setIsAudioStarted] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [selectedTopic, setSelectedTopic] = useState(null);
+  const location = useLocation();
+  const [query, setQuery] = useState("");
 
   useEffect(() => {
     const newSynth = new Tone.Synth({
@@ -355,6 +358,13 @@ export default function LearningHub({ onGoHome }) {
     setSelectedTopic(topic);
   };
 
+  // Apply search from query string
+  useEffect(() => {
+    const params = new URLSearchParams(location.search);
+    const q = params.get('q') || "";
+    setQuery(q);
+  }, [location.search]);
+
   if (selectedTopic) {
     return <LearningTopicPage topic={selectedTopic} onGoBack={() => setSelectedTopic(null)} />;
   }
@@ -385,7 +395,9 @@ export default function LearningHub({ onGoHome }) {
       </div>
 
       <div className="relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 p-6 mt-6">
-        {topics.map((topic) => (
+        {topics
+          .filter(t => !query || `${t.title} ${t.subject} ${t.description}`.toLowerCase().includes(query.toLowerCase()))
+          .map((topic) => (
           <motion.div
             key={topic.id}
             id={`topic-card-${topic.id}`}
