@@ -38,4 +38,4 @@ It combines education + gaming + community into a simple, engaging user interfac
 ## ⚡ Installation & Setup  
 1️⃣ Clone the repo  
 ```bash
-git clone https://github.com/YourUsername/EduKhel-Website.git
+git clone https://github.com/YourUsername/EduKhel-main.git
