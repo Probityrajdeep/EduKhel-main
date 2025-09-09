@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
+import logo from '../assets/EduKhel_logo.jpg';
 
 const Navbar = ({ isLoggedIn, onLoginToggle, onLogout }) => {
     const [searchQuery, setSearchQuery] = useState("");
@@ -21,10 +22,10 @@ const Navbar = ({ isLoggedIn, onLoginToggle, onLogout }) => {
             {/* Left: Logo */}
             <div className="flex items-center space-x-2">
                 <motion.img
-                    src="src/assets/EduKhel_Logo.jpg"
+                    src={logo}
                     alt="EduKhel Logo"
                     className="w-10 h-10 rounded-full border-2 border-yellow-400"
-                    animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1.05, 1] }}
+                    animate={{ rotate: [0, 5, -5, 0], y: [0, -2, 0], scale: [1, 1.05, 1.02, 1] }}
                     transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
                     whileHover={{ scale: 1.15 }}
                 />
@@ -40,13 +41,24 @@ const Navbar = ({ isLoggedIn, onLoginToggle, onLogout }) => {
             {/* Center: Navigation Links */}
             <div className="hidden md:flex flex-1 items-center justify-center">
                 <div className="flex items-center space-x-6 text-lg font-medium">
-                    <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
-                    <Link to="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
-                    {/* <Link to="/learning" className="text-gray-300 hover:text-white transition-colors">Learning Hub</Link> */}
-                    {/* <Link to="/gamehub" className="text-gray-300 hover:text-white transition-colors">Games</Link> */}
-                    <Link to="/teacher" className="text-yellow-300 hover:text-yellow-200 transition-colors">Teacher</Link>
-                    <Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link>
-                    <Link to="/contact" className="text-gray-300 hover:text-white transition-colors">Contact Us</Link>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/" className="text-gray-300 hover:text-white transition-colors">Home</Link>
+                    </motion.div>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/dashboard" className="text-gray-300 hover:text-white transition-colors">Dashboard</Link>
+                    </motion.div>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/teacher" className="text-yellow-300 hover:text-yellow-200 transition-colors">Teacher</Link>
+                    </motion.div>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/pricing" className="text-gray-300 hover:text-white transition-colors">Pricing</Link>
+                    </motion.div>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/about" className="text-gray-300 hover:text-white transition-colors">About</Link>
+                    </motion.div>
+                    <motion.div whileHover={{ y: -2, scale: 1.05 }} whileTap={{ scale: 0.98 }}>
+                        <Link to="/careers" className="text-gray-300 hover:text-white transition-colors">Careers</Link>
+                    </motion.div>
                 </div>
             </div>
 
@@ -88,7 +100,7 @@ const Navbar = ({ isLoggedIn, onLoginToggle, onLogout }) => {
                     </>
                 ) : (
                     <>
-                        <Link to="/Login">
+                        <Link to="/login">
                             <motion.button
                                 onClick={onLoginToggle}
                                 className="px-6 py-2 rounded-full text-white font-semibold bg-gradient-to-r from-green-500 to-lime-500 hover:from-green-600 hover:to-lime-600 transition-colors transform hover:scale-105 shadow-md"

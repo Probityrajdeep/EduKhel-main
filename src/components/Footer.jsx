@@ -102,10 +102,10 @@ function Footer() {
         {/* Links Section */}
         <div className="flex flex-col md:flex-row justify-between items-center border-t border-gray-700 pt-6">
           <div className="flex flex-wrap gap-6 mb-4 md:mb-0">
-            <a href="#" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Privacy Policy</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Terms of Service</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Support</a>
-            <a href="#" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Contact Us</a>
+            <a href="/privacy" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Privacy Policy</a>
+            <a href="/terms" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Terms of Service</a>
+            <a href="/support" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Support</a>
+            <a href="/contact" className="hover:text-yellow-400 transition-colors duration-300 text-sm">Contact Us</a>
           </div>
           <p className="text-sm text-gray-400">© 2025 EduKhel. All Rights Reserved.</p>
         </div>

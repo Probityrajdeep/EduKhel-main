@@ -20,6 +20,12 @@ import TeacherDashboard from "./pages/TeacherDashboard";
 import LanguageSwitcher from "./components/LanguageSwitcher";
 import Careers from "./pages/Careers";
 import Contact from "./pages/Contact";
+import Profile from "./pages/Profile";
+import Pricing from "./pages/Pricing";
+import About from "./pages/About";
+import Privacy from "./pages/Privacy";
+import Terms from "./pages/Terms";
+import Support from "./pages/Support";
 
 function App() {
   const location = useLocation();
@@ -189,6 +195,12 @@ function App() {
             <Route path="/teacher" element={<TeacherDashboard />} />
             <Route path="/careers" element={<Careers />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/pricing" element={<Pricing />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/privacy" element={<Privacy />} />
+            <Route path="/terms" element={<Terms />} />
+            <Route path="/support" element={<Support />} />
           </Routes>
         </motion.div>
       </main>
